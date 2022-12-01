@@ -12,11 +12,11 @@ Learning to use JUnit by making a simple library book registration program using
 **Before start, I recommend reading the document included to understand the context behind the program**
 
 Just clone the repo and then compile the program by executing in console:
-  `make`
-Then to start the program execute: 
-  `make Main`
+  `make`<br>
+Then to start the program execute:
+  `make Main`<br>
 And finally to delete the .class files:
-  `make clean`
+  `make clean`<br>
 
 ## Built with 🛠️
 
