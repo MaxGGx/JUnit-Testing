@@ -1,17 +1,17 @@
 import moduloReg.Ubicacion;
+
+import java.util.ArrayList;
+
 import moduloReg.Libro;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        int v1 = 1;
-        String v2 = "2B";
-        String v3 = "J23";
-        int v4 = 10;
-        int v5 = 22;
+        ArrayList<Libro> Books = new ArrayList<Libro>();
+    
         //Crear objeto de clase Ubicacion
-        Ubicacion ubitest = new Ubicacion(v1, v2, v3, v4, v5);
+        Ubicacion ubitest = new Ubicacion(1, "2B", "J23", 10, 22);
         System.out.println(ubitest.getUbicacion());
         System.out.println("EXITO");
         
@@ -27,6 +27,9 @@ public class Main
         System.out.println(librotest.getUbicacion().getUbicacion());
         System.out.println(librotest.getEstado());
         System.out.println(librotest.getDescripcion());
-        
+
+        Books.add(librotest);
+
+        System.out.println(Books.get(0).getUbicacion().getUbicacion());
     }
 }
