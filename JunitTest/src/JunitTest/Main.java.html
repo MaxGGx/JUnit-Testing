@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">appTest (10-12-2022 04:36:09)</a> &gt; <a href="../../index.html" class="el_group">JunitTest</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">JunitTest</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package JunitTest;
+import moduloReg.Ubicacion;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import moduloReg.Libro;
+
+<span class="nc" id="L9">public class Main</span>
+{
+    // Variable que obtiene todo lo ingresado por consola
+<span class="nc" id="L12">    private static final Scanner res = new Scanner(System.in);</span>
+
+    //Array que almacena todos los libros de la sesión
+<span class="nc" id="L15">    private static final ArrayList&lt;Libro&gt; Books = new ArrayList&lt;Libro&gt;();</span>
+
+    //Menu para administrar la creación de una entidad ubicacion
+    public static Ubicacion UbiCreation(String nombreLib)
+    {
+        final int piso;
+        final int posi1;
+        final int posi2;
+<span class="nc" id="L23">        System.out.print(&quot;Ingrese los datos de la ubicacion para el libro '&quot;+nombreLib+&quot;'\nNúmero de piso:\n&gt;&quot;);</span>
+        int temp2;
+        try{
+<span class="nc" id="L26">            temp2 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L27">        } catch (Exception e) {</span>
+<span class="nc" id="L28">            temp2 = 0;</span>
+        }
+<span class="nc" id="L30">        piso = temp2;</span>
+<span class="nc" id="L31">        System.out.print(&quot;Piso ingresado es: &quot;+piso+&quot;\nIngrese pasillo:\n&gt;&quot;);</span>
+<span class="nc" id="L32">        String npasi = res.nextLine();</span>
+<span class="nc" id="L33">        System.out.print(&quot;Pasillo ingresado es: &quot;+npasi+&quot;\nIngrese estante:\n&gt;&quot;);</span>
+<span class="nc" id="L34">        String estante = res.nextLine();</span>
+<span class="nc" id="L35">        System.out.print(&quot;Estante ingresado es: &quot;+estante+&quot;\nIngrese Posicion X:\n&gt;&quot;);</span>
+        int temp3;
+        int temp4;
+        try {
+<span class="nc" id="L39">            temp3 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L40">        } catch (Exception e) {</span>
+<span class="nc" id="L41">            temp3 = 0;</span>
+        }
+<span class="nc" id="L43">        posi1 = temp3;</span>
+<span class="nc" id="L44">        System.out.print(&quot;Posición X ingresada es: &quot;+posi1+&quot;\nIngrese Posicion Y:\n&gt;&quot;);</span>
+        try {
+<span class="nc" id="L46">            temp4 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L47">        } catch (Exception e) {</span>
+<span class="nc" id="L48">            temp4 = 0;</span>
+        }
+<span class="nc" id="L50">        posi2 = temp4;</span>
+<span class="nc" id="L51">        System.out.print(&quot;Posición Y ingresada es: &quot;+posi2+&quot;\n&quot;);</span>
+<span class="nc" id="L52">        Ubicacion ubi = new Ubicacion(piso, npasi, estante, posi1, posi2);</span>
+<span class="nc" id="L53">        System.out.print(ubi.getUbicacion());</span>
+<span class="nc" id="L54">        return ubi;</span>
+    }
+
+    //Menu para administrar la creación de un libro
+    public static Libro bookCreation()
+    {
+        final int paginas;
+<span class="nc" id="L61">        System.out.print(&quot;****[CREACION DE LIBRO]****\n\nIngrese el título para el nuevo libro\n&gt;&quot;);</span>
+<span class="nc" id="L62">        String nombrelibro = res.nextLine();</span>
+<span class="nc" id="L63">        System.out.print(&quot;\nNombre ingresado: &quot;+nombrelibro+&quot;\nIngrese los autores para el nuevo libro, separados por guíon (Ejemplo: Autor 1 - Autor 2)\n&gt;&quot;);</span>
+<span class="nc" id="L64">        String autores = res.nextLine();</span>
+<span class="nc" id="L65">        System.out.print(&quot;\nAutores ingresados: &quot;+autores+&quot;\nIngrese la fecha de publicación para '&quot;+nombrelibro+&quot;' (Ejemplo: &lt;dia&gt;/&lt;mes&gt;/&lt;año&gt;)\n&gt;&quot;);</span>
+<span class="nc" id="L66">        String fecha = res.nextLine();</span>
+<span class="nc" id="L67">        System.out.print(&quot;\nFecha ingresada: &quot;+fecha+&quot;\nIngrese la cantidad de paginas para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+        int temp;
+        try{
+<span class="nc" id="L70">            temp = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L71">        } catch (Exception e) {</span>
+<span class="nc" id="L72">            temp = 0;</span>
+        }
+<span class="nc" id="L74">        paginas = temp;</span>
+<span class="nc" id="L75">        System.out.print(&quot;\nPaginas ingresadas: &quot;+paginas+&quot;\nIngrese la editorial para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L76">        String editorial = res.nextLine();</span>
+<span class="nc" id="L77">        System.out.print(&quot;\nEditorial ingresada: &quot;+editorial+&quot;\nIngrese el género para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L78">        String genero = res.nextLine();</span>
+<span class="nc" id="L79">        System.out.print(&quot;\nGénero ingresado: &quot;+genero+&quot;\nIngrese el ISBN para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L80">        String isbn = res.nextLine();</span>
+<span class="nc" id="L81">        Ubicacion ubicacionLibro = UbiCreation(nombrelibro);</span>
+<span class="nc" id="L82">        System.out.print(&quot;\nIngrese el estado para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L83">        String estado = res.nextLine();</span>
+<span class="nc" id="L84">        System.out.print(&quot;\nEstado ingresado: &quot;+estado+&quot;\nIngrese descripción para '&quot;+nombrelibro+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L85">        String descripcion = res.nextLine();</span>
+<span class="nc" id="L86">        System.out.println(&quot;\nDescripción ingresada:&quot;+descripcion);</span>
+<span class="nc" id="L87">        Libro librores = new Libro(nombrelibro,autores,fecha,paginas,editorial,genero,isbn,ubicacionLibro,estado,descripcion);</span>
+<span class="nc" id="L88">        System.out.println(&quot;\n\n****[LIBRO &quot;+nombrelibro+&quot; CREADO]****\n\n&quot;);</span>
+<span class="nc" id="L89">        return librores;</span>
+    }
+
+    //Menu para administrar la seleccion de un libro para visualizar
+    public static void buscarLibro()
+    {
+        final int libroSel;
+<span class="nc" id="L96">        System.out.print(&quot;****[BUSQUEDA DE LIBRO]*****\nSeleccione como desea buscar el libro:\n1. Por Titulo\n2. Por Autor\n3. Por ISBN&quot;+&quot;\n\n&gt;&quot;);</span>
+<span class="nc" id="L97">        int eleccion = 0;</span>
+<span class="nc bnc" id="L98" title="All 4 branches missed.">        while(eleccion &lt; 1 || eleccion &gt; 3)</span>
+        {
+            try{
+<span class="nc" id="L101">                eleccion = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L102">            }catch(Exception e){</span>
+<span class="nc" id="L103">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L104">                eleccion = -1;</span>
+            }
+<span class="nc bnc" id="L106" title="All 4 branches missed.">            if(eleccion &lt; 1 || eleccion &gt; 3)</span>
+            {
+<span class="nc" id="L108">                System.out.print(&quot;****[BUSQUEDA DE LIBRO]*****\nSeleccione como desea buscar el libro:\n1. Por Titulo\n2. Por Autor\n3. Por ISBN&quot;+&quot;\n\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc" id="L111">        ArrayList&lt;Integer&gt; found = new ArrayList&lt;Integer&gt;();</span>
+        
+<span class="nc bnc" id="L113" title="All 4 branches missed.">        switch(eleccion){</span>
+            case 1:{
+<span class="nc" id="L115">                System.out.print(&quot;\nEscriba el nombre del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L116">                String nombreL = res.nextLine();</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">                    if (Books.get(i).getTitulo().contains(nombreL)){</span>
+<span class="nc" id="L119">                        found.add(i);</span>
+                    }
+                }
+<span class="nc" id="L122">                break;</span>
+            }
+
+            case 2:{
+<span class="nc" id="L126">                System.out.print(&quot;\nEscriba el Autor del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L127">                String autorL = res.nextLine();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">                    if (Books.get(i).getAutores().contains(autorL)){</span>
+<span class="nc" id="L130">                        found.add(i);</span>
+                    }
+                }
+<span class="nc" id="L133">                break;</span>
+            }
+
+            case 3:{
+<span class="nc" id="L137">                System.out.print(&quot;\nEscriba el ISBN del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L138">                String isbnL = res.nextLine();</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">                    if (Books.get(i).getIsbn().contains(isbnL)){</span>
+<span class="nc" id="L141">                        found.add(i);</span>
+                    }
+                }
+                break;
+            }
+        }
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        if(found.size() == 0){</span>
+<span class="nc" id="L148">            System.out.println(&quot;\nNo se encontró un libro - Por favor intente de nuevo\n&quot;);</span>
+<span class="nc" id="L149">            return;</span>
+        }
+<span class="nc" id="L151">        System.out.println(&quot;\nLibros encontrados:\n&quot;);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        for(int i = 0 ; i&lt;found.size(); i++){</span>
+<span class="nc" id="L153">            System.out.println(&quot;\n&quot;+i+&quot;.-&quot;+Books.get(found.get(i)).getTitulo()+&quot;\n&quot;);</span>
+        }
+<span class="nc" id="L155">        System.out.print(&quot;Seleccione el numero con el libro deseado para ver sus datos:\n&gt;&quot;);</span>
+<span class="nc" id="L156">        int temp5 = -1;</span>
+<span class="nc bnc" id="L157" title="All 4 branches missed.">        while(temp5 &lt; 0 || temp5 &gt; (found.size()-1)){</span>
+            try{
+<span class="nc" id="L159">                temp5 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L160">            }catch(Exception e){</span>
+<span class="nc" id="L161">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L162">                temp5 = -1;</span>
+            }
+<span class="nc bnc" id="L164" title="All 4 branches missed.">            if(temp5 &lt; 0 || temp5 &gt; (found.size()-1)){</span>
+<span class="nc" id="L165">                System.out.print(&quot;Seleccione el numero con el libro deseado para ver sus datos:\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc" id="L168">        libroSel = temp5;</span>
+<span class="nc" id="L169">        System.out.println(&quot;****[DATOS DEL LIBRO]****&quot;);</span>
+<span class="nc" id="L170">        System.out.println(&quot;Titulo: &quot;+Books.get(found.get(libroSel)).getTitulo());</span>
+<span class="nc" id="L171">        System.out.println(&quot;Autores: &quot;+Books.get(found.get(libroSel)).getAutores());</span>
+<span class="nc" id="L172">        System.out.println(&quot;Fecha Edición: &quot;+Books.get(found.get(libroSel)).getFecha());</span>
+<span class="nc" id="L173">        System.out.println(&quot;Cantidad de paginas: &quot;+Books.get(found.get(libroSel)).getPaginas());</span>
+<span class="nc" id="L174">        System.out.println(&quot;Editorial: &quot;+Books.get(found.get(libroSel)).getEditorial());</span>
+<span class="nc" id="L175">        System.out.println(&quot;Genero: &quot;+Books.get(found.get(libroSel)).getGenero());</span>
+<span class="nc" id="L176">        System.out.println(&quot;ISBN: &quot;+Books.get(found.get(libroSel)).getIsbn());</span>
+<span class="nc" id="L177">        System.out.println(&quot;Ubicación: &quot;+Books.get(found.get(libroSel)).getUbicacion().getUbicacion());</span>
+<span class="nc" id="L178">        System.out.println(&quot;Estado: &quot;+Books.get(found.get(libroSel)).getEstado());</span>
+<span class="nc" id="L179">        System.out.println(&quot;Descripción: &quot;+Books.get(found.get(libroSel)).getDescripcion());</span>
+<span class="nc" id="L180">        return;</span>
+    }
+
+    //Menu para administrar la seleccion de un libro para trabajar (Editar o eliminar)
+    public static int buscarLibroSel()
+    {
+        final int libroSel;
+<span class="nc" id="L187">        System.out.print(&quot;****[BUSQUEDA DE LIBRO]*****\nSeleccione como desea buscar el libro a seleccionar:\n1. Por Titulo\n2. Por Autor\n3. Por ISBN&quot;+&quot;\n\n&gt;&quot;);</span>
+<span class="nc" id="L188">        int eleccion = 0;</span>
+<span class="nc bnc" id="L189" title="All 4 branches missed.">        while(eleccion &lt; 1 || eleccion &gt; 3)</span>
+        {
+            try{
+<span class="nc" id="L192">                eleccion = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L193">            }catch(Exception e){</span>
+<span class="nc" id="L194">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L195">                eleccion = -1;</span>
+            }
+<span class="nc bnc" id="L197" title="All 4 branches missed.">            if(eleccion &lt; 1 || eleccion &gt; 3)</span>
+            {
+<span class="nc" id="L199">                System.out.print(&quot;****[BUSQUEDA DE LIBRO]*****\nSeleccione como desea buscar el libro:\n1. Por Titulo\n2. Por Autor\n3. Por ISBN&quot;+&quot;\n\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc" id="L202">        ArrayList&lt;Integer&gt; found = new ArrayList&lt;Integer&gt;();</span>
+<span class="nc bnc" id="L203" title="All 4 branches missed.">        switch(eleccion){</span>
+            case 1:{
+<span class="nc" id="L205">                System.out.print(&quot;\nEscriba el nombre del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L206">                String nombreL = res.nextLine();</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">                    if (Books.get(i).getTitulo().contains(nombreL)){</span>
+<span class="nc" id="L209">                        found.add(i);</span>
+                    }
+                }
+<span class="nc" id="L212">                break;</span>
+            }
+
+            case 2:{
+<span class="nc" id="L216">                System.out.print(&quot;\nEscriba el Autor del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L217">                String autorL = res.nextLine();</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                    if (Books.get(i).getAutores().contains(autorL)){</span>
+<span class="nc" id="L220">                        found.add(i);</span>
+                    }
+                }
+<span class="nc" id="L223">                break;</span>
+            }
+
+            case 3:{
+<span class="nc" id="L227">                System.out.print(&quot;\nEscriba el ISBN del libro para buscar:\n&gt;&quot;);</span>
+<span class="nc" id="L228">                String isbnL = res.nextLine();</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">                for(int i = 0; i&lt;Books.size(); i++ ){</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">                    if (Books.get(i).getIsbn().contains(isbnL)){</span>
+<span class="nc" id="L231">                        found.add(i);</span>
+                    }
+                }
+                break;
+            }
+        }
+<span class="nc bnc" id="L237" title="All 2 branches missed.">        if(found.size() == 0){</span>
+<span class="nc" id="L238">            System.out.println(&quot;\nNo se encontró un libro - Por favor intente de nuevo\n&quot;);</span>
+<span class="nc" id="L239">            return -1;</span>
+        }
+<span class="nc" id="L241">        System.out.println(&quot;\nLibros encontrados:\n&quot;);</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">        for(int i = 0 ; i&lt;found.size(); i++){</span>
+<span class="nc" id="L243">            System.out.println(&quot;\n&quot;+i+&quot;.-&quot;+Books.get(found.get(i)).getTitulo()+&quot;\n&quot;);</span>
+        }
+<span class="nc" id="L245">        System.out.print(&quot;Seleccione el numero con el libro deseado para utilizar:\n&gt;&quot;);</span>
+<span class="nc" id="L246">        int temp5 = -1;</span>
+<span class="nc bnc" id="L247" title="All 4 branches missed.">        while(temp5 &lt; 0 || temp5 &gt; (found.size()-1)){</span>
+            try{
+<span class="nc" id="L249">                temp5 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L250">            }catch(Exception e){</span>
+<span class="nc" id="L251">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L252">                temp5 = -1;</span>
+            }
+<span class="nc bnc" id="L254" title="All 4 branches missed.">            if(temp5 &lt; 0 || temp5 &gt; (found.size()-1)){</span>
+<span class="nc" id="L255">                System.out.println(&quot;\nLibros encontrados:\n&quot;);</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">                for(int i = 0 ; i&lt;found.size(); i++)</span>
+                {
+<span class="nc" id="L258">                    System.out.println(&quot;\n&quot;+i+&quot;.-&quot;+Books.get(found.get(i)).getTitulo()+&quot;\n&quot;);</span>
+                }
+<span class="nc" id="L260">                System.out.print(&quot;\nSeleccione el numero con el libro deseado para utilizar:\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc" id="L263">        libroSel = temp5;</span>
+<span class="nc" id="L264">        return found.get(libroSel);</span>
+    }
+
+    //Menu para administrar la obtención de un input en string
+    public static String getInputStr(String nombreCampo, String oldValue)
+    {
+<span class="nc" id="L270">        System.out.print(&quot;\nIngrese el nuevo valor para &quot;+nombreCampo+&quot;\nValor Actual: '&quot;+oldValue+&quot;'\n&gt;&quot;);</span>
+<span class="nc" id="L271">        return res.nextLine();</span>
+    }
+
+    //Menu para administrar la obtencion de un input en entero
+    public static int getInputInt(String nombreCampo, int oldValue)
+    {
+        int resultado;
+<span class="nc" id="L278">        System.out.print(&quot;\nIngrese el nuevo valor para &quot;+nombreCampo+&quot;\nValor Actual: '&quot;+oldValue+&quot;'\n&gt;&quot;);</span>
+        try{
+<span class="nc" id="L280">            resultado = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L281">        }catch(Exception e){</span>
+<span class="nc" id="L282">            System.out.println(&quot;\nERROR: Ingrese un valor numérico - Se aplica por defecto -1\n&quot;);</span>
+<span class="nc" id="L283">            resultado = -1;</span>
+        }
+<span class="nc" id="L285">        return resultado;</span>
+    }
+
+    //Menu para administrar la edición de un libro
+    public static void editBook()
+    {
+<span class="nc" id="L291">        int libroeleg = buscarLibroSel();</span>
+<span class="nc bnc" id="L292" title="All 2 branches missed.">        if(libroeleg == -1){</span>
+<span class="nc" id="L293">            return;</span>
+        }
+<span class="nc" id="L295">        System.out.print(&quot;Seleccione campo a editar para libro '&quot;+Books.get(libroeleg).getTitulo()+&quot;':\n1.Titulo\n2.Autores\n3.Fecha\n4.Paginas\n5.Editorial\n6.Género\n7.ISBN\n8.Ubicación\n9.Estado\n10.Descripción\n\n&gt;&quot;);</span>
+<span class="nc" id="L296">        int temp5 = -1;</span>
+<span class="nc bnc" id="L297" title="All 4 branches missed.">        while(temp5 &lt; 1 || temp5 &gt; 10)</span>
+        {
+            try{
+<span class="nc" id="L300">                temp5 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L301">            }catch(Exception e){</span>
+<span class="nc" id="L302">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L303">                temp5 = -1;</span>
+            }
+<span class="nc bnc" id="L305" title="All 4 branches missed.">            if(temp5 &lt; 0 || temp5 &gt; 10)</span>
+            {
+<span class="nc" id="L307">                System.out.print(&quot;Seleccione campo a editar para libro '&quot;+Books.get(libroeleg).getTitulo()+&quot;':\n1.Titulo\n2.Autores\n3.Fecha\n4.Paginas\n5.Editorial\n6.Género\n7.ISBN\n8.Ubicación\n9.Estado\n10.Descripción\n\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc bnc" id="L310" title="All 11 branches missed.">        switch(temp5)</span>
+        {
+            // Titulo
+            case 1:{
+<span class="nc" id="L314">                String vc = getInputStr(&quot;Título&quot;, Books.get(libroeleg).getTitulo());</span>
+<span class="nc" id="L315">                Books.get(libroeleg).setTitulo(vc);</span>
+<span class="nc" id="L316">                break;</span>
+            }
+            // Autores
+            case 2:{
+<span class="nc" id="L320">                String vc = getInputStr(&quot;Autores&quot;, Books.get(libroeleg).getAutores());</span>
+<span class="nc" id="L321">                Books.get(libroeleg).setAutores(vc);</span>
+<span class="nc" id="L322">                break;</span>
+            }
+            // Fecha
+            case 3:{
+<span class="nc" id="L326">                String vc = getInputStr(&quot;Fecha&quot;, Books.get(libroeleg).getFecha());</span>
+<span class="nc" id="L327">                Books.get(libroeleg).setFecha(vc);</span>
+<span class="nc" id="L328">                break;</span>
+            }
+            // Paginas
+            case 4:{
+<span class="nc" id="L332">                int vc = getInputInt(&quot;Paginas&quot;, Books.get(libroeleg).getPaginas());</span>
+<span class="nc" id="L333">                Books.get(libroeleg).setPaginas(vc);</span>
+<span class="nc" id="L334">                break;</span>
+            }
+            // Editorial
+            case 5:{
+<span class="nc" id="L338">                String vc = getInputStr(&quot;Editorial&quot;, Books.get(libroeleg).getEditorial());</span>
+<span class="nc" id="L339">                Books.get(libroeleg).setEditorial(vc);</span>
+<span class="nc" id="L340">                break;</span>
+            }
+            // Género
+            case 6:{
+<span class="nc" id="L344">                String vc = getInputStr(&quot;Género&quot;, Books.get(libroeleg).getGenero());</span>
+<span class="nc" id="L345">                Books.get(libroeleg).setGenero(vc);</span>
+<span class="nc" id="L346">                break;</span>
+            }  
+            // ISBN
+            case 7:{
+<span class="nc" id="L350">                String vc = getInputStr(&quot;ISBN&quot;, Books.get(libroeleg).getIsbn());</span>
+<span class="nc" id="L351">                Books.get(libroeleg).setIsbn(vc);</span>
+<span class="nc" id="L352">                break;</span>
+            }
+            // Ubicacion
+            case 8:{
+<span class="nc" id="L356">                Ubicacion vc = UbiCreation(Books.get(libroeleg).getTitulo());</span>
+<span class="nc" id="L357">                Books.get(libroeleg).setUbicacion(vc);</span>
+<span class="nc" id="L358">                break;</span>
+            }
+            // Estado
+            case 9:{
+<span class="nc" id="L362">                String vc = getInputStr(&quot;Estado&quot;, Books.get(libroeleg).getEstado());</span>
+<span class="nc" id="L363">                Books.get(libroeleg).setEstado(vc);</span>
+<span class="nc" id="L364">                break;</span>
+            }
+            // Descripcion
+            case 10:{
+<span class="nc" id="L368">                String vc = getInputStr(&quot;Descripción&quot;, Books.get(libroeleg).getDescripcion());</span>
+<span class="nc" id="L369">                Books.get(libroeleg).setDescripcion(vc);</span>
+                break;
+            }
+
+        }
+<span class="nc" id="L374">        System.out.println(&quot;****[LIBRO CAMBIADO]****&quot;);</span>
+<span class="nc" id="L375">        System.out.println(&quot;Titulo: &quot;+Books.get(libroeleg).getTitulo());</span>
+<span class="nc" id="L376">        System.out.println(&quot;Autores: &quot;+Books.get(libroeleg).getAutores());</span>
+<span class="nc" id="L377">        System.out.println(&quot;Fecha Edición: &quot;+Books.get(libroeleg).getFecha());</span>
+<span class="nc" id="L378">        System.out.println(&quot;Cantidad de paginas: &quot;+Books.get(libroeleg).getPaginas());</span>
+<span class="nc" id="L379">        System.out.println(&quot;Editorial: &quot;+Books.get(libroeleg).getEditorial());</span>
+<span class="nc" id="L380">        System.out.println(&quot;Genero: &quot;+Books.get(libroeleg).getGenero());</span>
+<span class="nc" id="L381">        System.out.println(&quot;ISBN: &quot;+Books.get(libroeleg).getIsbn());</span>
+<span class="nc" id="L382">        System.out.println(&quot;Ubicación: &quot;+Books.get(libroeleg).getUbicacion().getUbicacion());</span>
+<span class="nc" id="L383">        System.out.println(&quot;Estado: &quot;+Books.get(libroeleg).getEstado());</span>
+<span class="nc" id="L384">        System.out.println(&quot;Descripción: &quot;+Books.get(libroeleg).getDescripcion());</span>
+<span class="nc" id="L385">        return;</span>
+    }
+
+    //Menu para administrar el eliminiado de un libro
+    public static void deleteBook()
+    {
+<span class="nc" id="L391">        int libroeleg = buscarLibroSel();</span>
+<span class="nc bnc" id="L392" title="All 2 branches missed.">        if(libroeleg == -1){</span>
+<span class="nc" id="L393">            return;</span>
+        }
+<span class="nc" id="L395">        System.out.print(&quot;Esta seguro que desea eliminar el libro '&quot;+Books.get(libroeleg).getTitulo()+&quot;'?\n1. SI\n2. NO\n&gt;&quot;);</span>
+<span class="nc" id="L396">        int temp6 = -1;</span>
+<span class="nc bnc" id="L397" title="All 4 branches missed.">        while(temp6 &lt; 1 || temp6 &gt; 2)</span>
+        {
+            try{
+<span class="nc" id="L400">                temp6 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L401">            }catch(Exception e){</span>
+<span class="nc" id="L402">                System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L403">                temp6 = -1;</span>
+            }
+<span class="nc bnc" id="L405" title="All 4 branches missed.">            if(temp6 &lt; 1 || temp6 &gt; 2)</span>
+            {
+<span class="nc" id="L407">                System.out.print(&quot;Esta seguro que desea eliminar el libro '&quot;+Books.get(libroeleg).getTitulo()+&quot;'?\n1. SI\n2. NO\n&gt;&quot;);</span>
+            }
+        }
+<span class="nc bnc" id="L410" title="All 3 branches missed.">        switch(temp6){</span>
+            case 1:{
+<span class="nc" id="L412">                Books.remove(libroeleg);</span>
+<span class="nc" id="L413">                System.out.println(&quot;\nLibro eliminado\n&quot;);</span>
+<span class="nc" id="L414">                return;</span>
+            } case 2: {
+<span class="nc" id="L416">                System.out.println(&quot;\nOperación cancelada\n&quot;);</span>
+<span class="nc" id="L417">                return;</span>
+            }
+        }
+<span class="nc" id="L420">    }</span>
+
+    //Menú principal para la ejecucion del programa
+    public static void main(String[] args)
+    {
+<span class="nc" id="L425">        String comando = &quot;-1&quot;;</span>
+<span class="nc bnc" id="L426" title="All 2 branches missed.">        while(comando != &quot;salida&quot;)</span>
+        {
+<span class="nc" id="L428">            System.out.print(&quot;BIENVENIDO AL SISTEMA DE BIBLIOTECA\nLibros actuales en sistema: &quot;+Books.size()+&quot;\n\n¿Qué desea hacer?\n1.Crear Libro\n2.Ver Libro\n3.Editar Libro\n4.Borrar Libro\n5.Salir del sistema\n\n&gt;&quot;);</span>
+<span class="nc" id="L429">            int temp7 = -1;</span>
+            //temp7 = Integer.parseInt(res.nextLine());
+<span class="nc bnc" id="L431" title="All 4 branches missed.">            while(temp7 &lt; 1 || temp7 &gt; 5)</span>
+            {
+                try{
+<span class="nc" id="L434">                    temp7 = Integer.parseInt(res.nextLine());</span>
+<span class="nc" id="L435">                }catch(Exception e){</span>
+<span class="nc" id="L436">                    System.out.println(&quot;\nERROR: Ingrese un valor numérico\n&quot;);</span>
+<span class="nc" id="L437">                    temp7 = -1;</span>
+                }
+<span class="nc bnc" id="L439" title="All 4 branches missed.">                if(temp7 &lt; 1 || temp7 &gt; 5)</span>
+                {
+<span class="nc" id="L441">                    System.out.print(&quot;BIENVENIDO AL SISTEMA DE BIBLIOTECA\nLibros actuales en sistema: &quot;+Books.size()+&quot;\n\n¿Qué desea hacer?\n1.Crear Libro\n2.Ver Libro\n3.Editar Libro\n4.Borrar Libro\n5.Salir del sistema\n\n&gt;&quot;);</span>
+                }
+            }
+<span class="nc bnc" id="L444" title="All 6 branches missed.">            switch(temp7)</span>
+            {
+                case 1:{
+<span class="nc" id="L447">                    Books.add(bookCreation());</span>
+<span class="nc" id="L448">                    break;</span>
+                }
+                case 2: {
+<span class="nc bnc" id="L451" title="All 2 branches missed.">                    if(Books.size() == 0){</span>
+<span class="nc" id="L452">                        System.out.println(&quot;La base de datos de libros esta vacía! - Debe crear un libro primero para usar esta función&quot;);</span>
+<span class="nc" id="L453">                        break;</span>
+                    } else {
+<span class="nc" id="L455">                        buscarLibro();</span>
+<span class="nc" id="L456">                        break;</span>
+                    }
+                }
+                case 3: {
+<span class="nc bnc" id="L460" title="All 2 branches missed.">                    if(Books.size() == 0){</span>
+<span class="nc" id="L461">                        System.out.println(&quot;La base de datos de libros esta vacía! - Debe crear un libro primero para usar esta función&quot;);</span>
+<span class="nc" id="L462">                        break;</span>
+                    } else {
+<span class="nc" id="L464">                        editBook();</span>
+<span class="nc" id="L465">                        break;</span>
+                    }
+                }
+                case 4: {
+<span class="nc bnc" id="L469" title="All 2 branches missed.">                    if(Books.size() == 0){</span>
+<span class="nc" id="L470">                        System.out.println(&quot;La base de datos de libros esta vacía! - Debe crear un libro primero para usar esta función&quot;);</span>
+<span class="nc" id="L471">                        break;</span>
+                    } else {
+<span class="nc" id="L473">                        deleteBook();</span>
+<span class="nc" id="L474">                        break;</span>
+                    }
+                }
+                case 5: {
+<span class="nc" id="L478">                    System.out.println(&quot;Muchas gracias por usar el sistema&quot;);</span>
+<span class="nc" id="L479">                    comando = &quot;salida&quot;;</span>
+                    break;
+                }
+            }
+        }
+
+        //Crear objeto libro
+        //Libro librotest = bookCreation();//new Libro(&quot;50 sombras de Pruebas de Software&quot;, &quot;Anonimo&quot;, &quot;1 de Dic&quot;, 69, &quot;USM SJ&quot;, &quot;Terror&quot;, &quot;6969-6969-6969&quot;, ubitest, &quot;disponible&quot;, &quot;Una novela llena de suspenso y terror, obervando las mayores tragedias de este semestre!&quot;);
+        //System.out.println(librotest.getTitulo());
+        //System.out.println(librotest.getAutores());
+        //System.out.println(librotest.getFecha());
+        //System.out.println(librotest.getPaginas());
+        //System.out.println(librotest.getEditorial());
+        //System.out.println(librotest.getGenero());
+        //System.out.println(librotest.getIsbn());
+        //System.out.println(librotest.getUbicacion().getUbicacion());
+        //System.out.println(librotest.getEstado());
+        //System.out.println(librotest.getDescripcion());
+
+        //Books.add(librotest);
+
+        //System.out.println(Books.get(0).getUbicacion().getUbicacion());
+<span class="nc" id="L501">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>appTest (10-12-2022 04:36:09)</div></body></html>

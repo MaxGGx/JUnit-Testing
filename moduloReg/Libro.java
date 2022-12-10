@@ -1,6 +1,6 @@
 package moduloReg;
 
-import moduloReg.Ubicacion;
+//import moduloReg.Ubicacion;
 
 // Clase que almacena un objeto del tipo Libro
 public class Libro

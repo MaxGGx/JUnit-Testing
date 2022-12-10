@@ -21,7 +21,7 @@ public class Ubicacion
     //Obtiene la ubicacion en formato string
     public String getUbicacion()
     {
-        return ("La ubicación es en el piso: "+pisoBiblioteca+"\nPasillo:"+pasillo+"\nEstante:"+estante+"\nPosición:"+posicion[0]+" , "+posicion[1]);
+        return ("La ubicación es en el piso: "+pisoBiblioteca+"\nPasillo:"+pasillo+"\nEstante:"+estante+"\nPosición:"+posicion[0]+" , "+posicion[1]+"\n");
     }
 
     //Configura la ubicación a partir del reingreso de todas las variables

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Ubicacion.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">appTest (10-12-2022 04:36:09)</a> &gt; <a href="../../index.html" class="el_group">JunitTest</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">moduloReg</a> &gt; <span class="el_source">Ubicacion.java</span></div><h1>Ubicacion.java</h1><pre class="source lang-java linenums">package moduloReg;
+
+// Clase que almacena la Ubicacion del libro
+public class Ubicacion
+{
+    private int pisoBiblioteca;
+    private String pasillo;
+    private String estante;
+<span class="fc" id="L9">    private int[] posicion = new int[2];</span>
+
+    // constructor de la clase
+<span class="fc" id="L12">    public Ubicacion(int piso, String npasillo, String nestante, int posicion1, int posicion2)</span>
+    {
+<span class="fc" id="L14">        pisoBiblioteca = piso;</span>
+<span class="fc" id="L15">        pasillo = npasillo;</span>
+<span class="fc" id="L16">        estante = nestante;</span>
+<span class="fc" id="L17">        posicion[0] = posicion1;</span>
+<span class="fc" id="L18">        posicion[1] = posicion2;</span>
+<span class="fc" id="L19">    }</span>
+
+    //Obtiene la ubicacion en formato string
+    public String getUbicacion()
+    {
+<span class="nc" id="L24">        return (&quot;La ubicación es en el piso: &quot;+pisoBiblioteca+&quot;\nPasillo:&quot;+pasillo+&quot;\nEstante:&quot;+estante+&quot;\nPosición:&quot;+posicion[0]+&quot; , &quot;+posicion[1]+&quot;\n&quot;);</span>
+    }
+
+    //Configura la ubicación a partir del reingreso de todas las variables
+    public void setUbicacion(int piso, String npasillo, String nestante, int posicion1, int posicion2)
+    {
+<span class="nc" id="L30">        pisoBiblioteca = piso;</span>
+<span class="nc" id="L31">        pasillo = npasillo;</span>
+<span class="nc" id="L32">        estante = nestante;</span>
+<span class="nc" id="L33">        posicion[0] = posicion1;</span>
+<span class="nc" id="L34">        posicion[1] = posicion2;</span>
+<span class="nc" id="L35">    }</span>
+
+    //Cambia el valor para el piso del libro
+    public void setPiso(int piso)
+    {
+<span class="fc" id="L40">        pisoBiblioteca = piso;</span>
+<span class="fc" id="L41">    }</span>
+    
+    //Obtiene el valor para el piso del libro
+    public int getPiso()
+    {
+<span class="fc" id="L46">        return pisoBiblioteca;</span>
+    }
+    
+    //Cambia el valor para el pasillo del libro
+    public void setPasillo(String npasillo)
+    {
+<span class="fc" id="L52">        pasillo = npasillo;</span>
+<span class="fc" id="L53">    }</span>
+    
+    //Obtiene el valor para el pasillo del libro
+    public String getPasillo()
+    {
+<span class="fc" id="L58">        return pasillo;</span>
+    }
+    
+    //Cambia el valor para el estante del pasillo
+    public void setEstante(String nestante)
+    {
+<span class="nc" id="L64">        estante = nestante;</span>
+<span class="nc" id="L65">    }</span>
+    
+    //Obtiene el valor para el estante del libro
+    public String getEstante()
+    {
+<span class="fc" id="L70">        return estante;</span>
+    }
+    
+    //Cambia el valor para la posicion del libro
+    public void setPosicion(int posicion1, int posicion2)
+    {
+<span class="nc" id="L76">        posicion[0] = posicion1;</span>
+<span class="nc" id="L77">        posicion[1] = posicion2;</span>
+<span class="nc" id="L78">    }</span>
+    
+    //Obtiene el valor para la posicion del libro
+    public int[] getPosicion()
+    {
+<span class="fc" id="L83">        return posicion;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>appTest (10-12-2022 04:36:09)</div></body></html>
